@@ -51,6 +51,20 @@ namespace SudokuSolver {
       return status;
     }
 
+    public override string ToString(){
+      StringBuilder sb = new StringBuilder();
+
+      for(int i = 0; i < size; i++){
+        for(int j = 0; i < size; j++){
+          sb.Append(board[i, j]);
+          sb.Append(" ");
+        }
+        sb.AppendLine();
+      }
+
+      return sb.ToString();
+    }
+
     private BoardStatus CheckRow(int row) {
       BoardStatus status = BoardStatus.Solved;
       Span<bool> foundNumbers = stackalloc bool[size + 1];
